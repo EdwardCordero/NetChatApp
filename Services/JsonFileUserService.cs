@@ -48,11 +48,11 @@ namespace NetChatApp.Services
             }
         }
 
-        public void AddUser(string newUserName)
+        public void StartNewChat(string UserId)
         {
             using(var jsonFileReader = File.OpenText(UsersListFileName))
             {
-                JsonSerializer.Serialize<string>(newUserName);
+                JsonSerializer.Serialize<string>(UserId);
             }
         }
 
