@@ -1,0 +1,24 @@
+ @using NetChatApp.Services
+ @using NetChatApp.Models
+ @using NetChatApp.Pages
+ @using NetChatApp.Components
+ @inject JsonFileUserService UserService
+
+@* @if(chats != null){
+<div class="current-chat-container">
+    @foreach (var chat in chats)
+    {
+        <p>
+            @chat.date
+            @chat.chat
+            @chat.sender
+            @chat.reciver
+        </p>
+    }
+</div>
+}
+
+@code 
+{
+    public IEnumerable<Chats> chats = UserChatList *@
+}

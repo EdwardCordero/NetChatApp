@@ -1,0 +1,22 @@
+[
+    {
+        "Id": "User1",
+        "Name": "John Doe",
+        "ProfileImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1024px-.NET_Core_Logo.svg.png"
+    },
+    {
+        "Id": "User2",
+        "Name": "Bill Doe",
+        "ProfileImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1024px-.NET_Core_Logo.svg.png"
+    },
+    {
+        "Id": "User1",
+        "Name": "Jane Doe",
+        "ProfileImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1024px-.NET_Core_Logo.svg.png"
+    },
+    {
+        "Id": "User1",
+        "Name": "Molly Doe",
+        "ProfileImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1024px-.NET_Core_Logo.svg.png"
+    }
+]

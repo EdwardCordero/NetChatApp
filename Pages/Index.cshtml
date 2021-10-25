@@ -1,0 +1,74 @@
+﻿@page
+@using NetChatApp.Components 
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@* @(await Html.RenderComponentAsync<UserChatList>(RenderMode.ServerPrerendered)) *@
+
+<div class="main-container">
+    <div class="left-container">
+        <div class="title-container">
+            <h1 class="left-title">Net Chat</h1>
+        </div>
+        <div class="search-user-bar">
+            <form asp-page-handler="search" method="post">
+                <p>
+                    <input type="text" asp-for="specificUser" placeholder="Find User"/>
+                    <button>Search</button>
+                </p>
+            </form>
+        </div>
+        <div class="chat-list-container">
+            <div class="chat-container-header">
+                <h4 class="chat-list-header"> Chats </h4>
+            </div>
+            @if(Model.chatUsers != null) {
+                @foreach (var users in Model.chatUsers)
+                {
+                    <div class="chat-usr-container">
+                        <form asp-page-handler="chats" method="post">
+                            <p class="chat-usr-li">
+                                <img src=@users.ProfileImage alt="profileImg">
+                                @users.Name
+                                @users.Id
+                                <input type="hidden" asp-for="userChatingId" value=@users.Id>
+                                <input type="submit" value="Open Chat" />
+                            </p>
+                        </form>
+                    </div>
+                    <div>
+
+                    </div>
+                }
+            } 
+        </div>
+    </div>
+    <div class="right-container">
+        @if(Model.searchedUserName != null){
+            <div class="users-results-container">
+                <p class="userli">
+                    @Model.searchedUserName
+                    @Model.searchUserID
+                    @* @Model.searchedUser *@
+                    <button>Chat</button>
+                </p>
+            </div>
+        }
+        @if(Model.chats != null){
+            <div class="current-chat-container">
+                @foreach (var chat in Model.chats)
+                {
+                    <p>
+                        @chat.date
+                        @chat.chat
+                        @chat.sender
+                        @chat.reciver
+                    </p>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<script src="_framework/blazor.server.js"></script>

@@ -1,0 +1,97 @@
+ @using NetChatApp.Services
+ @using NetChatApp.Models
+ @using NetChatApp.Pages
+ @using NetChatApp.Components
+ @inject JsonFileUserService UserService
+
+<div class="main-container">
+    <div class="left-container">
+        <div class="title-container">
+            <h1 class="left-title">Net Chat</h1>
+        </div>
+        <div class="search-user-bar">
+            @* <form method="post"> *@
+                <p>
+                    <input type="text" asp-for="specificUser" placeholder="Find User" @bind="userNameSearched"/>
+                    <button @onclick="(e => SearchUser())">Search</button>
+                </p>
+            @* </form> *@
+        </div>
+        <div class="chat-list-container">
+            <div class="chat-container-header">
+                <h4 class="chat-list-header"> Chats </h4>
+            </div>                  
+            <div class="razor-user-chat-list">
+                @foreach (var users in UserService.GetChatUsers())
+                {
+                    <div class="chat-usr-container">
+                        <p class="chat-usr-li">
+                            <img src=@users.ProfileImage alt="profileImg">
+                            @users.Name
+                            <button @onclick="(e => FindChats(users.Id))">Open Chat</button>
+                        </p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="right-container">
+        @if(searchedUser != null){
+            <div class="users-results-container">
+                <p class="userli">
+                    <img src=@searchedUser.ProfileImage alt="profileImg">
+                    @searchedUser.Name
+                    @searchedUser.Id
+                    <button>Chat</button>
+                </p>
+            </div>
+        }
+        @if(chatsFromUser != null){
+            <div class="current-chat-container">
+                @foreach (var chat in chatsFromUser)
+                {
+                    <p>
+                        @chat.date
+                        @chat.chat
+                        @chat.sender
+                        @chat.reciver
+                    </p>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@code
+{
+    public IEnumerable<Chats> chatsFromUser {get; set;}
+    public User searchedUser;
+
+    public string userNameSearched;
+
+    void FindChats(string userID)
+    {
+        chatsFromUser = UserService.GetChats(userID);
+        System.Console.WriteLine($"finding chats");
+    }
+
+    void SearchUser()
+    {
+        if(string.IsNullOrWhiteSpace(userNameSearched))
+        {
+            return;
+        }
+        else{
+            searchedUser = UserService.FindUser(userNameSearched);
+            if(searchedUser == null)
+            {
+                Console.WriteLine("No results found");
+            }
+            @* else {
+                searchedUserName = searchedUser.Name;
+                searchUserID = searchedUser.Id;
+                Console.WriteLine(searchedUserName);
+            } *@
+        }
+    }
+}

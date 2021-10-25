@@ -1,0 +1,24 @@
+﻿<Properties StartupConfiguration="{0C5BBC67-EF89-4E03-9FA3-B64CEF26FB1F}|Default">
+  <MonoDevelop.Ide.ItemProperties.NetChatApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="NetChatApp" expanded="True">
+            <Node name="NetChatApp" expanded="True">
+              <Node name="Pages" expanded="True">
+                <Node name="Error.cshtml" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
