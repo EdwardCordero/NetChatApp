@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NetChatApp.Data;
+using NetChatApp.data;
 using NetChatApp.Services;
 
 namespace NetChatApp
