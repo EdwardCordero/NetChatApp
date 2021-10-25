@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace NetChatApp.data
+namespace NetChatApp.Data
 {
     public class MyDbContext : DbContext
     {
