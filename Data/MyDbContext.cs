@@ -17,8 +17,9 @@ namespace NetChatApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // base.OnModelCreating(modelBuilder);
-            
+            base.OnModelCreating(modelBuilder);
+
+            // modelBuilder.Entity<UserEntity>(e => e.Property(o => o.Password).HasColumnName)
         } 
     }
 }

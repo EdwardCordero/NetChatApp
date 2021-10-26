@@ -9,6 +9,7 @@ namespace NetChatApp.Data
 {
     public class UserEntity
     {
+        [Required]
         public string Id {get; set;}
 
         [Required]
