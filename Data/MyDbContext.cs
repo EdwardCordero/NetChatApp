@@ -15,5 +15,10 @@ namespace NetChatApp.Data
 
         public DbSet<UserEntity> User {get; set;}
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // base.OnModelCreating(modelBuilder);
+            
+        } 
     }
 }
