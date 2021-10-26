@@ -20,7 +20,7 @@ namespace NetChatApp.Data
         public string LastName {get; set;}
 
         [Required]
-        public string password {get; set;}
+        public string Password {get; set;}
         public string ProfileImage {get; set;}
     }
 }
