@@ -60,7 +60,7 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color: #060914;
+  background-color: #ffffff;
 }
 .footer {
   position: absolute;
@@ -82,6 +82,8 @@ body {
 
 .body-container {
   justify-content: center;
+  color: white;
+  background-color: #10162e;
 }
 
 .main-container{
@@ -89,7 +91,7 @@ body {
   margin-left: 3em;
   align-self: center;
   display: inline-flex;
-  width: 90%;
+  width: 93%;
   height: 39em;
 }
 

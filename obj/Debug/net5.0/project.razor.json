@@ -12,72 +12,6 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -1816629297,
-        "Kind": "Components.Component",
-        "Name": "NetChatApp.Components.ChatList",
-        "AssemblyName": "NetChatApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ChatList"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "NetChatApp.Components.ChatList"
-        }
-      },
-      {
-        "HashCode": -979910674,
-        "Kind": "Components.Component",
-        "Name": "NetChatApp.Components.ChatList",
-        "AssemblyName": "NetChatApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "NetChatApp.Components.ChatList"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "NetChatApp.Components.ChatList",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1466794666,
-        "Kind": "Components.Component",
-        "Name": "NetChatApp.Components.UserChatList",
-        "AssemblyName": "NetChatApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "UserChatList"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "NetChatApp.Components.UserChatList"
-        }
-      },
-      {
-        "HashCode": 1687413450,
-        "Kind": "Components.Component",
-        "Name": "NetChatApp.Components.UserChatList",
-        "AssemblyName": "NetChatApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "NetChatApp.Components.UserChatList"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "NetChatApp.Components.UserChatList",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 622345495,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView",
@@ -15710,6 +15644,21 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Pages/Shared/_LoginPartial.cshtml",
+      "TargetPath": "Pages\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Areas/Identity/Pages/Account/Register.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Pages/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -15717,6 +15666,11 @@
     {
       "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Pages/Settings.cshtml",
       "TargetPath": "Pages\\Settings.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Areas/Identity/Pages/_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15732,6 +15686,31 @@
     {
       "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Pages/_ViewImports.cshtml",
       "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Areas/Identity/Pages/_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Areas/Identity/Pages/Account/_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Areas/Identity/Pages/Account/Login.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/edwardcordero/Projects/NetChatApp/Areas/Identity/Pages/Account/Logout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
       "FileKind": "mvc"
     }
   ],
