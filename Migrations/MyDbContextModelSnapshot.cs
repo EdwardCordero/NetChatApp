@@ -219,6 +219,60 @@ namespace NetChatApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("NetChatApp.Areas.Identity.Data.ChatEntity", b =>
+                {
+                    b.Property<string>("ChatId")
+                        .HasColumnType("varchar(767)");
+
+                    b.Property<string>("ChatText")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedOnDate")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("ReciverId")
+                        .HasColumnType("varchar(767)");
+
+                    b.Property<string>("SenderId")
+                        .HasColumnType("varchar(767)");
+
+                    b.Property<string>("UserChatsEntityChatId")
+                        .HasColumnType("varchar(767)");
+
+                    b.Property<string>("test")
+                        .HasColumnType("text");
+
+                    b.HasKey("ChatId");
+
+                    b.HasIndex("ReciverId");
+
+                    b.HasIndex("SenderId");
+
+                    b.HasIndex("UserChatsEntityChatId");
+
+                    b.ToTable("ChatEntity");
+                });
+
+            modelBuilder.Entity("NetChatApp.Areas.Identity.Data.UserChatsEntity", b =>
+                {
+                    b.Property<string>("ChatId")
+                        .HasColumnType("varchar(767)");
+
+                    b.Property<string>("ChatingWithId")
+                        .HasColumnType("varchar(767)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(767)");
+
+                    b.HasKey("ChatId");
+
+                    b.HasIndex("ChatingWithId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserChats");
+                });
+
             modelBuilder.Entity("NetChatApp.Areas.Identity.Data.UserEntity", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -287,6 +341,45 @@ namespace NetChatApp.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("NetChatApp.Areas.Identity.Data.ChatEntity", b =>
+                {
+                    b.HasOne("NetChatApp.Areas.Identity.Data.UserEntity", "Reciver")
+                        .WithMany()
+                        .HasForeignKey("ReciverId");
+
+                    b.HasOne("NetChatApp.Areas.Identity.Data.UserEntity", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId");
+
+                    b.HasOne("NetChatApp.Areas.Identity.Data.UserChatsEntity", null)
+                        .WithMany("Chats")
+                        .HasForeignKey("UserChatsEntityChatId");
+
+                    b.Navigation("Reciver");
+
+                    b.Navigation("Sender");
+                });
+
+            modelBuilder.Entity("NetChatApp.Areas.Identity.Data.UserChatsEntity", b =>
+                {
+                    b.HasOne("NetChatApp.Areas.Identity.Data.UserEntity", "ChatingWith")
+                        .WithMany()
+                        .HasForeignKey("ChatingWithId");
+
+                    b.HasOne("NetChatApp.Areas.Identity.Data.UserEntity", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("ChatingWith");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("NetChatApp.Areas.Identity.Data.UserChatsEntity", b =>
+                {
+                    b.Navigation("Chats");
                 });
 #pragma warning restore 612, 618
         }

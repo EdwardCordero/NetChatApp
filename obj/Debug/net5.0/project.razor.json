@@ -12,6 +12,72 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
+        "HashCode": -1816629297,
+        "Kind": "Components.Component",
+        "Name": "NetChatApp.Components.ChatList",
+        "AssemblyName": "NetChatApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ChatList"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "NetChatApp.Components.ChatList"
+        }
+      },
+      {
+        "HashCode": -979910674,
+        "Kind": "Components.Component",
+        "Name": "NetChatApp.Components.ChatList",
+        "AssemblyName": "NetChatApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NetChatApp.Components.ChatList"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "NetChatApp.Components.ChatList",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1466794666,
+        "Kind": "Components.Component",
+        "Name": "NetChatApp.Components.UserChatList",
+        "AssemblyName": "NetChatApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "UserChatList"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "NetChatApp.Components.UserChatList"
+        }
+      },
+      {
+        "HashCode": 1687413450,
+        "Kind": "Components.Component",
+        "Name": "NetChatApp.Components.UserChatList",
+        "AssemblyName": "NetChatApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NetChatApp.Components.UserChatList"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "NetChatApp.Components.UserChatList",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 622345495,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView",

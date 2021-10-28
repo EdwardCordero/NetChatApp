@@ -15,12 +15,19 @@ namespace NetChatApp.Areas.Identity.Data
         }
 
         public DbSet<UserEntity> User {get; set;}
+        public  DbSet<UserChatsEntity> UserChats {get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            // modelBuilder.Entity<UserEntity>()
+            //     .Property(b => b.ProfileImage)
+            //     .HasDefaultValue("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1024px-.NET_Core_Logo.svg.png");
             // modelBuilder.Entity<UserEntity>(e => e.Property(o => o.Password).HasColumnName)
-        } 
+
+            // modelBuilder.Entity<ChatEntity>()
+            //     .Property(b => b.Date)
+            //     .HasDefaultValueSql("getdate()");
+        }
     }
 }
