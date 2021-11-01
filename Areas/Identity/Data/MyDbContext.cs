@@ -17,6 +17,8 @@ namespace NetChatApp.Areas.Identity.Data
         public DbSet<UserEntity> User {get; set;}
         public  DbSet<UserChatsEntity> UserChats {get; set;}
 
+        public DbSet<ChatEntity> ChatEntities {get; set;}
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -28,6 +30,14 @@ namespace NetChatApp.Areas.Identity.Data
             // modelBuilder.Entity<ChatEntity>()
             //     .Property(b => b.Date)
             //     .HasDefaultValueSql("getdate()");
+
+            modelBuilder.Entity<ChatEntity>(entity =>{
+                entity.Property(x => x.ChatId).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<UserChatsEntity>(e => {
+                e.Property(x => x.ChatId).ValueGeneratedOnAdd();
+            });
         }
     }
 }

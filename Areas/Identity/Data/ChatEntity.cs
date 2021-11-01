@@ -15,12 +15,10 @@ namespace NetChatApp.Areas.Identity.Data
 
         public string ChatText {get; set;}
 
-        public UserEntity Reciver {get; set;}
+        public string ReciverId {get; set;}
 
-        public UserEntity Sender {get; set;}
+        public string SenderId {get; set;}
 
-        public DateTime CreatedOnDate {get; set;}
-
-        public string test {get; set;}
+        public DateTime Date {get; set;}
     }
 }

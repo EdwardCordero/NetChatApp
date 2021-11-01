@@ -22,16 +22,15 @@
             <div class="chat-container-header">
                 <h4 class="chat-list-header"> Chats </h4>
             </div>
-            @if(Model.chatUsers != null) {
-                @foreach (var users in Model.chatUsers)
+            @if(Model.ChatAsSender != null) {
+                @foreach (var user in Model.ChatAsSender)
                 {
                     <div class="chat-usr-container">
                         <form asp-page-handler="chats" method="post">
                             <p class="chat-usr-li">
-                                <img src=@users.ProfileImage alt="profileImg">
-                                @users.Name
-                                @users.Id
-                                <input type="hidden" asp-for="userChatingId" value=@users.Id>
+                                        @user.FirstName
+                                        @user.LastName
+                                        <input type="hidden" asp-for="userChatingId" value=@user.Id>
                                 <input type="submit" value="Open Chat" />
                             </p>
                         </form>
@@ -40,33 +39,89 @@
 
                     </div>
                 }
-            } 
+            }
+             @if(Model.ChatAsReciver != null) {
+                @foreach (var user in Model.ChatAsReciver)
+                {
+                    <div class="chat-usr-container">
+                        <form asp-page-handler="chats" method="post">
+                            <p class="chat-usr-li">
+                                        @user.FirstName
+                                        @user.LastName
+                                        <input type="hidden" asp-for="userChatingId" value=@user.Id>
+                                <input type="submit" value="Open Chat" />
+                            </p>
+                        </form>
+                    </div>
+                    <div>
+
+                    </div>
+                }
+            }  
         </div>
     </div>
     <div class="right-container">
-        @if(Model.searchedUserName != null){
-            <div class="users-results-container">
-                <p class="userli">
-                    @Model.searchedUserName
-                    @Model.searchUserID
-                    @* @Model.searchedUser *@
-                    <button>Chat</button>
-                </p>
-            </div>
-        }
-        @if(Model.chats != null){
-            <div class="current-chat-container">
-                @foreach (var chat in Model.chats)
-                {
-                    <p>
-                        @chat.date
-                        @chat.chat
-                        @chat.sender
-                        @chat.reciver
+        <div class="chat-container">
+            @if(Model.searchedUserName != null){
+                <div class="users-results-container">
+                    <p class="userli">
+                        @Model.searchedUserName
+                        @Model.searchUserID
+                        @* @Model.searchedUser *@
+                        <button>Chat</button>
                     </p>
-                }
-            </div>
-        }
+                </div>
+            }
+            @if(Model.DoesUserHaveChat){
+                <div class="current-chat-container">
+                    @if(Model.Chats != null){
+                        @foreach (var chat in Model.Chats)
+                        {
+                            @if(chat.SenderId == Model.LoggedInUserId)
+                            {
+                                <div class="text-you-sent-container">
+                                    <p class="text-you-sent">
+                                        @chat.ChatText
+                                    </p>
+                                    <p>
+                                        @chat.Date
+                                    </p>
+                                </div>
+                            }
+                            @if(chat.ReciverId == Model.LoggedInUserId)
+                            {
+                                <div class="text-they-sent-container">
+                                <p class="text-they-sent"> 
+                                    @chat.ChatText
+                                </p>
+                                <p>
+                                    @chat.Date
+                                </p>
+                            </div>
+                            }
+
+                        }
+                    }
+                </div>
+            }
+            else{
+                <div class="current-chat-container">
+                    <p>
+                        Hello @Model.LoggedInUserId
+                        Start a Chat with @Model.userChatingId
+                    </p>
+                </div>
+            }
+        </div>
+        <div class="chat-text-box">
+            <form asp-page-handler="chats" method="post">
+                <p>
+                    <input class="input-chat-box" type="text" placeholder="type text here" asp-for="newChat">
+                    <input type="hidden" asp-for="userChatingId" value=@Model.userChatingId>
+                    <input class="chat-submit-button" type="submit" value="Send Chat"/>
+                </p>
+            </form>
+        </div>
     </div>
 </div>
 

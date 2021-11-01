@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -12,9 +13,11 @@ namespace NetChatApp.Areas.Identity.Data
     {
         [Key]
         public string ChatId {get;set;}
+
         public UserEntity User {get; set;}
 
-        public UserEntity ChatingWith {get; set;}
-        public List<ChatEntity> Chats {get; set;}
+        public UserEntity ChatingWithId {get; set;}
+
+        public IEnumerable<ChatEntity> Chats {get; set;}
     }
 }

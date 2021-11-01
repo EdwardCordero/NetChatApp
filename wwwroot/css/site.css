@@ -110,16 +110,14 @@ body {
 
 
 .chat-container {
-  background-color: rgb(39, 40, 90);
-  height: fit-content;
+  background-color: rgba(45, 65, 153, 0.534);
+  height: 95%;
   width: 100%;
   overflow-y: auto;
 }
 
 .right-container {
   margin-left: 1em;
-  background-color: rgb(112, 112, 112);
-  opacity: 30%;
   width: 70%;
   height: 100%;
 }
@@ -167,4 +165,57 @@ body {
 
 .chat-usr-li {
   color: white;
+}
+
+
+.chat-text-box {
+  bottom: 0;
+  position: relative;
+}
+
+.input-chat-box {
+  width: 88%;
+}
+
+.current-chat-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.text-you-sent-container {
+  margin-bottom: 0;
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+  direction: rtl;
+}
+
+.text-you-sent {
+  background-color: #5740d8c0;
+  border-color: white;
+  /* border-radius: 45%; */
+  width: fit-content;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 0;
+}
+
+.text-they-sent-conatiner {
+  width: fit-content;
+  margin-bottom: 0;
+  
+}
+
+.text-they-sent {
+  background-color: rgb(52, 53, 121);
+  border-color: white;
+  /* border-radius: 45%; */
+  width: fit-content;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 0;
 }

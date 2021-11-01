@@ -1,4 +1,4 @@
- @using NetChatApp.Services
+ @* @using NetChatApp.Services
  @using NetChatApp.Models
  @using NetChatApp.Pages
  @using NetChatApp.Components
@@ -10,12 +10,12 @@
             <h1 class="left-title">Net Chat</h1>
         </div>
         <div class="search-user-bar">
-            @* <form method="post"> *@
+            <form method="post">
                 <p>
                     <input type="text" asp-for="specificUser" placeholder="Find User" @bind="userNameSearched"/>
                     <button @onclick="(e => SearchUser())">Search</button>
                 </p>
-            @* </form> *@
+            </form>
         </div>
         <div class="chat-list-container">
             <div class="chat-container-header">
@@ -87,11 +87,11 @@
             {
                 Console.WriteLine("No results found");
             }
-            @* else {
+            else {
                 searchedUserName = searchedUser.Name;
                 searchUserID = searchedUser.Id;
                 Console.WriteLine(searchedUserName);
-            } *@
+            }
         }
     }
-}
+} *@

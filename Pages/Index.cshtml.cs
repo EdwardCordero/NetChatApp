@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using NetChatApp.Areas.Identity.Data;
 using NetChatApp.Models;
 using NetChatApp.Services;
 
@@ -27,15 +28,25 @@ namespace NetChatApp.Pages
         public string searchUserID;
 
         [BindProperty]
-        public IEnumerable<User> chatUsers {get; private set;}
+        public IEnumerable<UserEntity> ChatAsSender {get; private set;}
 
         [BindProperty]
-        public IEnumerable<Chats> chats {get; private set;}
+        public IEnumerable<UserEntity> ChatAsReciver {get; private set;}
+
+        [BindProperty]
+        public bool DoesUserHaveChat {get; private set;}
+
+        [BindProperty]
+        public IEnumerable<ChatEntity> Chats {get; set;}
+
+        [BindProperty]
+        public IEnumerable<Chats> chatJson {get; private set;}
 
         [BindProperty]
         public string userChatingId {get; set;}
 
-        
+        [BindProperty]
+        public string LoggedInUserId {get; set;}
 
         public IndexModel(ILogger<IndexModel> logger, JsonFileUserService userService)
         {
@@ -46,18 +57,24 @@ namespace NetChatApp.Pages
         public void OnGet()
         {
             Users = UserService.GetUsers();
-            chatUsers = UserService.GetChatUsers();
+            LoggedInUserId = UserService.GetUserID();
+            ChatAsSender = UserService.GetChatUsers(LoggedInUserId);
+            ChatAsReciver = UserService.GetChatUsers_Reciver(LoggedInUserId);
             Console.WriteLine("started up");
         }
 
         public void OnPost()
         {
-            chatUsers = UserService.GetChatUsers();
+            LoggedInUserId = UserService.GetUserID();
+            ChatAsSender = UserService.GetChatUsers(LoggedInUserId);
+            ChatAsReciver = UserService.GetChatUsers_Reciver(LoggedInUserId);
         }
 
         public void OnPostSearch()
         {
-            chatUsers = UserService.GetChatUsers();
+            LoggedInUserId = UserService.GetUserID();
+            ChatAsSender = UserService.GetChatUsers(LoggedInUserId);
+            ChatAsReciver = UserService.GetChatUsers_Reciver(LoggedInUserId);
             if(string.IsNullOrWhiteSpace(specificUser))
             {
                 RedirectToPage("/Index");
@@ -76,21 +93,28 @@ namespace NetChatApp.Pages
             }
         }
 
+        [BindProperty]
+        public string newChat {get; set;}
         public void OnPostChats()
         {
-            Console.WriteLine("chating with user: " + userChatingId);
-            chatUsers = UserService.GetChatUsers();
-            chats = UserService.GetChats(userChatingId);
-        }
-
-        public void OnPostAddUser()
-        {
-
-        }
-
-        public IEnumerable<Chats> UserChats(User userChating)
-        {
-            return chats = UserService.GetChats(userChating.Id);
+            LoggedInUserId = UserService.GetUserID();
+            ChatAsSender = UserService.GetChatUsers(LoggedInUserId);
+            ChatAsReciver = UserService.GetChatUsers_Reciver(LoggedInUserId);
+            DoesUserHaveChat = UserService.CheckForChat(userChatingId, LoggedInUserId);
+            if(DoesUserHaveChat)
+            {
+                Chats = UserService.GetChats(userChatingId, LoggedInUserId);
+            }
+            else{
+                //Create chat row 
+                UserService.CreateUserChats(userChatingId, LoggedInUserId);
+            }
+            if(string.IsNullOrWhiteSpace(newChat))
+            {
+                return; 
+            }
+            Console.WriteLine("Adding chat with user: " + userChatingId);
+            UserService.AddChatToChats(LoggedInUserId, userChatingId, newChat);
         }
     }
 }

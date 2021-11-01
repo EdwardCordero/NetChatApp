@@ -12,34 +12,6 @@ namespace NetChatApp.Components
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
-#nullable restore
-#line 1 "/Users/edwardcordero/Projects/NetChatApp/Components/UserChatList.razor"
-using NetChatApp.Services;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "/Users/edwardcordero/Projects/NetChatApp/Components/UserChatList.razor"
-using NetChatApp.Models;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "/Users/edwardcordero/Projects/NetChatApp/Components/UserChatList.razor"
-using NetChatApp.Pages;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "/Users/edwardcordero/Projects/NetChatApp/Components/UserChatList.razor"
-using NetChatApp.Components;
-
-#line default
-#line hidden
-#nullable disable
     public partial class UserChatList : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -47,47 +19,6 @@ using NetChatApp.Components;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 66 "/Users/edwardcordero/Projects/NetChatApp/Components/UserChatList.razor"
- 
-    public IEnumerable<Chats> chatsFromUser {get; set;}
-    public User searchedUser;
-
-    public string userNameSearched;
-
-    void FindChats(string userID)
-    {
-        chatsFromUser = UserService.GetChats(userID);
-        System.Console.WriteLine($"finding chats");
-    }
-
-    void SearchUser()
-    {
-        if(string.IsNullOrWhiteSpace(userNameSearched))
-        {
-            return;
-        }
-        else{
-            searchedUser = UserService.FindUser(userNameSearched);
-            if(searchedUser == null)
-            {
-                Console.WriteLine("No results found");
-            }
-            
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 94 "/Users/edwardcordero/Projects/NetChatApp/Components/UserChatList.razor"
-                
-        }
-    }
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private JsonFileUserService UserService { get; set; }
     }
 }
 #pragma warning restore 1591
