@@ -5,6 +5,10 @@
 }
 @* @(await Html.RenderComponentAsync<UserChatList>(RenderMode.ServerPrerendered)) *@
 
+    <form method="get" action="/identity/Account/logout">
+    <button type="submit">Log Out</button>
+    </form>
+    
 <div class="main-container">
     <div class="left-container">
         <div class="title-container">
